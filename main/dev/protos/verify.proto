@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option objc_class_prefix = "VFY";
+option java_package = "io.grpc.verify.permissions";
+option java_outer_classname = "VerifyPermissionsProto";
+package verify;
+
+service VerifyPermissions {
+    rpc Autorization (VerifyRequest) returns (VerifyResponse) {
+    }
+}
+
+message VerifyRequest {
+    string token = 1;
+    string refreshToken = 2;
+    string method = 3;
+    string baseUrl = 4;
+}
+
+message VerifyResponse {
+    bool autorizationResponse = 1;
+    string errorMessage = 2;
+    string errorStatus = 3;
+}

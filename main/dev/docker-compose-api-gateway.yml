@@ -1,0 +1,27 @@
+version: "3"
+services:
+    eicas-gw:
+        image: "devops01.incubator.com:5000/com.telecom.eicas-nodejs-api-gateway.${PIPELINE_VERSION}"
+        container_name: eicas-gw
+        ports:
+            - "3100:3100"
+            - "4105:4105"
+        environment:
+            - log=${LOG}
+            - URL_AGENTES=${URL_AGENTES}
+            - URL_BACKEND=${URL_BACKEND}
+            - URL_SOCKET_BACKEND=${URL_SOCKET_BACKEND}
+            - URL_PROCESOS=${URL_PROCESOS}
+            - URL_SENSORES=${URL_SENSORES}
+            - URL_EVENTOS_REPORTES=${URL_EVENTOS_REPORTES}
+            - URL_PROYECTOS=${URL_PROYECTOS}
+            - URL_SOPORTE=${URL_SOPORTE}
+            - URL_HOME=${URL_HOME}
+            - URL_SERVICIOS=${URL_SERVICIOS}
+            - IP_HOST=${IP_HOST}
+        networks:
+            - network_eicas
+networks:
+    network_eicas:
+        external:
+            name: network_eicas

@@ -1,0 +1,30 @@
+{
+  "name": "dev",
+  "version": "1.0.0",
+  "description": "api-gateway",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "express": "^4.16.4"
+  },
+  "dependencies": {
+    "@grpc/proto-loader": "0.1.0",
+    "async": "1.5.2",
+    "cors": "^2.8.5",
+    "del": "2.2.0",
+    "express-http-proxy": "^1.5.1",
+    "google-protobuf": "3.0.0",
+    "grpc": "1.23.3",
+    "gulp": "3.9.1",
+    "gulp-jshint": "2.0.0",
+    "gulp-usemin": "0.3.21",
+    "helmet": "^3.18.0",
+    "http-proxy": "^1.17.0",
+    "jshint": "2.9.1",
+    "jshint-stylish": "2.1.0",
+    "morgan": "1.6.1",
+    "request": "^2.88.0",
+    "winston": "2.3.1"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "eicas",
+  "cpus": 0.4,
+  "mem": 500.0,
+  "healthChecks": [{
+  "path": "/",
+  "portIndex": 0,
+  "protocol": "HTTP",
+  "gracePeriodSeconds": 300,
+  "intervalSeconds": 60,
+  "timeoutSeconds": 20,
+  "maxConsecutiveFailures": 3,
+  "ignoreHttp1xx": false
+}],
+  "instances": 1,
+  "labels": {
+     "HAPROXY_GROUP":"external"
+  },
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "devops01.incubator.com:5000/com.telecom.eicas-nodejs-api-gateway.version",
+      "network": "BRIDGE",
+      "portMappings": [
+        { "containerPort": 3100, "hostPort": 0, "servicePort": 4000, "protocol": "tcp" },
+        { "containerPort": 3105, "hostPort": 0, "servicePort": 3105,  "protocol": "tcp" }
+         ],
+      "parameters": [
+            {"key": "env",  "value": "mode=test"},
+            { "key": "log-driver", "value": "syslog" }
+                ]
+    }
+  }
+}
